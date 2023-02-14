@@ -17,17 +17,17 @@ public class Zadanie4 {
         System.out.println("Валидность доски = " + isValidSudokuDesk(board));
     }
 
-    public static boolean isValidSudokuDesk(char[][] arr){
+    public static boolean isValidSudokuDesk(char[][] arr) {
         for (int i = 0; i < arr.length; i++) {
             HashSet<Character> rowSet = new HashSet<>();
             HashSet<Character> columnsSet = new HashSet<>();
             for (int j = 0; j < arr[i].length; j++) {
                 char symbol = arr[i][j];
-                if(rowSet.contains(symbol)) return false;
-                if(symbol != '.') rowSet.add(symbol);
+                if (rowSet.contains(symbol)) return false;
+                if (symbol != '.') rowSet.add(symbol);
                 symbol = arr[j][i];
-                if(columnsSet.contains(symbol)) return false;
-                if(symbol != '.') columnsSet.add(symbol);
+                if (columnsSet.contains(symbol)) return false;
+                if (symbol != '.') columnsSet.add(symbol);
             }
         }
         int row = 0;
@@ -38,11 +38,11 @@ public class Zadanie4 {
                 for (int k = column; k < column + 3; k++) {
                     char symbol = arr[j][k];
                     if (blockSet.contains(symbol)) return false;
-                    if(symbol != '.') blockSet.add(symbol);
+                    if (symbol != '.') blockSet.add(symbol);
                 }
             }
             column += 3;
-            if(column == 9){
+            if (column == 9) {
                 column = 0;
                 row += 3;
             }
